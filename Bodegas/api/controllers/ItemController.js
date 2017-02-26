@@ -65,5 +65,32 @@ module.exports = {
       });
     })
   },
+  borrarItem: function (req, res) {
+    var parametros = req.allParams();
+    if (parametros.id) {
+      Item.destroy({
+        id: parametros.id
+      }).exec(function (err, itemBorrado) {
+        if (err) {
+          res.view('error', {
+            error: {
+              descripcion: "Error inesperado",
+              rawError: err,
+              url: '/Item/listaritems?id=' + parametros.bodega
+            }
+          });
+        }
+        res.redirect('/Item/listaritems?id=' + parametros.bodega);
+      })
+    } else {
+      res.view('error', {
+        error: {
+          descripcion: "Necesitamos el ID para borrar.",
+          rawError: "No envía ID",
+          url: '/Item/listaritems?id=' + parametros.bodega
+        }
+      });
+    }
+  },
 };
 

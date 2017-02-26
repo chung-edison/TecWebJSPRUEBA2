@@ -10,8 +10,8 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-2">
-      <button href="/Item/editarItem?id=<%= items[i].id %>" class="btn btn-block btn-info">Editar</button>
-      <button href="/Item/borrarItem?id=<%= items[i].id %>" class="btn btn-block btn-danger">Borrar</button>
+      <a href="/editarItem?id=<%= items[i].id %>&bodega=<%= idBodega%>" class="btn btn-block btn-info">Editar</a>
+      <a href="/Item/borrarItem?id=<%= items[i].id %>&bodega=<%= idBodega%>" class="btn btn-block btn-danger">Borrar</a>
     </div>
   </div>
   <% } %>
