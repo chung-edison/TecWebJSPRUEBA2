@@ -46,6 +46,8 @@ module.exports.routes = {
 
   'post /nuevabodega': 'BodegaController.crearBodega',
 
+  'get /editarbodega': 'RutasController.editarBodega',
+
   'get /items': 'RutasController.listarItems',
 
   'get /nuevoitem': 'RutasController.crearItem',

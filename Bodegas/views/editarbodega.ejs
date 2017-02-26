@@ -1,6 +1,7 @@
 <div class="container">
+  <% console.log(bodega)%>
   <h1>Editar bodega - <%= bodega.nombre %></h1>
-  <form action="Bodega/editarBodega" METHOD="POST">
+  <form action="Bodega/editarBodega" method="post">
     <div class="form-group">
       <label>Nombre de la bodega:</label>
       <input type="text" class="form-control" value="<%= bodega.nombre %>" name="nombre">
@@ -11,8 +12,10 @@
     </div>
     <div class="form-group">
       <label>Capacidad de la bodega (en toneladas):</label>
-      <input type="number" class="form-control" min="0" name="capacidadEnToneladas" value="<%= bodega.capacidadEnToneladas %>">
+      <input type="number" class="form-control" min="0" name="capacidadEnToneladas"
+             value="<%= bodega.capacidadEnToneladas %>">
     </div>
+    <input type='hidden' name='id' value='<%= bodega.id %>'>
     <button type="submit" class="btn btn-block btn-success">Registrar Bodega</button>
   </form>
 </div>

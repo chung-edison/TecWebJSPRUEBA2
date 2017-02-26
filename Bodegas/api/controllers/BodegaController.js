@@ -74,6 +74,51 @@ module.exports = {
         }
       });
     }
-  }
+  },
+
+  editarBodega: function (req, res) {
+    var parametros = req.allParams();
+    if (parametros.id && (parametros.nombre || parametros.direccion || parametros.capacidadEnToneladas)) {
+
+      var bodega = {
+        nombre: parametros.nombre,
+        direccion: parametros.direccion,
+        capacidadEnToneladas: parametros.capacidadEnToneladas
+      }
+
+      if (bodega.nombre == "") {
+        delete bodega.nombre
+      }
+      if (bodega.direccion == "") {
+        delete bodega.direccion
+      }
+      if (bodega.capacidadEnToneladas == "") {
+        delete bodega.capacidadEnToneladas
+      }
+
+      Bodega.update({
+        id: parametros.id
+      }, bodega).exec(function (err, bodegaActualizada) {
+        if (err) {
+          res.view('error', {
+            error: {
+              descripcion: "Tuvimos un error inesperado",
+              rawError: err,
+              url: "/bodegas"
+            }
+          });
+        }
+        res.redirect('/bodegas');
+      })
+    } else {
+      res.view('error', {
+        error: {
+          descripcion: "Necesitamos el ID",
+          rawError: "No envía ID",
+          url: "/bodegas"
+        }
+      });
+    }
+  },
 };
 

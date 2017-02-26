@@ -22,6 +22,36 @@ module.exports = {
       });
     })
   },
+
+  editarBodega: function (req, res) {
+    var parametros = req.allParams();
+    if (parametros.id) {
+      Bodega.findOne({
+        id: parametros.id
+      }).exec(function (err, bodegaAEditar) {
+        if (err) {
+          res.view('error', {
+            error: {
+              descripcion: "Error inesperado",
+              rawError: err,
+              url: "/bodegas"
+            }
+          });
+        }
+        res.view('editarbodega', {
+          bodega: bodegaAEditar
+        });
+      })
+    } else {
+      res.view('error', {
+        error: {
+          descripcion: "Necesitamos el ID para editar la bodega.",
+          rawError: "No envía ID",
+          url: "/bodegas"
+        }
+      });
+    }
+  },
   listarItems: function (req, res) {
     var params = req.allParams();
     Item.find(Item.idBodega == params.id).exec(function (err, listaitems) {
