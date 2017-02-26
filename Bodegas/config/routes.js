@@ -47,6 +47,7 @@ module.exports.routes = {
   'get /editarbodega': 'RutasController.editarBodega',
 
   'get /nuevoitem': 'RutasController.crearItem',
+  'get /editaritem': 'RutasController.editarItem',
 
   'get /error': 'RutasController.error'
 

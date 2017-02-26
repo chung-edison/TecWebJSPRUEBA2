@@ -58,6 +58,35 @@ module.exports = {
       idBodega: params.idBodega,
     });
   },
+  editarItem: function (req, res) {
+    var parametros = req.allParams();
+    if (parametros.id) {
+      Item.findOne({
+        id: parametros.id
+      }).exec(function (err, itemAEditar) {
+        if (err) {
+          res.view('error', {
+            error: {
+              descripcion: "Error inesperado",
+              rawError: err,
+              url: '/Item/listaritems?id=' + parametros.bodega
+            }
+          });
+        }
+        res.view('editaritem', {
+          item: itemAEditar
+        });
+      })
+    } else {
+      res.view('error', {
+        error: {
+          descripcion: "Necesitamos el ID para editar la bodega.",
+          rawError: "No envía ID",
+          url: '/Item/listaritems?id=' + parametros.bodega
+        }
+      });
+    }
+  },
   error: function (req, res) {
     return res.view('error', {
       error: {

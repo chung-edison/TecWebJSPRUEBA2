@@ -92,5 +92,50 @@ module.exports = {
       });
     }
   },
+  editarItem: function (req, res) {
+    var parametros = req.allParams();
+    console.log(parametros)
+    if (parametros.id && (parametros.nombre || parametros.cantidad || parametros.peso)) {
+
+      var item = {
+        nombre: parametros.nombre,
+        cantidad: parametros.cantidad,
+        peso: parametros.peso
+      }
+
+      if (item.nombre == "") {
+        delete item.nombre
+      }
+      if (item.direccion == "") {
+        delete item.direccion
+      }
+      if (item.peso == "") {
+        delete item.peso
+      }
+
+      Item.update({
+        id: parametros.id
+      }, item).exec(function (err, itemActualizado) {
+        if (err) {
+          res.view('error', {
+            error: {
+              descripcion: "Tuvimos un error inesperado",
+              rawError: err,
+              url: "/Item/listaritems?id=" + parametros.bodega
+            }
+          });
+        }
+        res.redirect("/Item/listaritems?id=" + parametros.bodega);
+      })
+    } else {
+      res.view('error', {
+        error: {
+          descripcion: "Necesitamos el ID",
+          rawError: "No envía ID",
+          url: "/Item/listaritems?id=" + parametros.bodega
+        }
+      });
+    }
+  },
 };
 

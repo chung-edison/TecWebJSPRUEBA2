@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Editar Item - <%= item.nombre %> en Bodega - <%= item.idBodega %></h1>
+  <form action="Item/editarItem" method="post">
+    <div class="form-group">
+      <label>Nombre del item:</label>
+      <input type="text" class="form-control" value="<%= item.nombre %>" name="nombre">
+    </div>
+    <div class="form-group">
+      <label>Cantidad:</label>
+      <input type="number" class="form-control" min="0" name="cantidad" value="<%= item.cantidad %>">
+    </div>
+    <div class="form-group">
+      <label>Peso:</label>
+      <input type="number" class="form-control" min="0" name="peso" value="<%= item.peso %>">
+    </div>
+    <input type='hidden' name='bodega' value='<%= item.idBodega %>'>
+    <input type='hidden' name='id' value='<%= item.id %>'>
+
+    <button type="submit" class="btn btn-block btn-success">Registrar Item</button>
+  </form>
+</div>
