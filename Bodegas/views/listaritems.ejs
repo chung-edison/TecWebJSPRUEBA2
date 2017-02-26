@@ -1,9 +1,5 @@
 <div class="container">
   <h1>Lista de Items en Bodega <%= idBodega %></h1>
-  <div class="row">
-    <a href="/Item/crearItem?idBodega=<%= idBodega %>" class="btn btn-block btn-success">Nuevo Item</a>
-  </div>
-
   <% for (i = 0; i < items.length;i++) { %>
   <div class="row">
     <div class="col-sm-8">
@@ -19,5 +15,7 @@
     </div>
   </div>
   <% } %>
-
+  <div class="row">
+    <a href="/nuevoitem?idBodega=<%= idBodega %>" class="btn btn-block btn-success">Nuevo Item</a>
+  </div>
 </div>

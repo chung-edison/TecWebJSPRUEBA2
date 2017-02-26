@@ -38,21 +38,15 @@ module.exports.routes = {
   '/home': {
     view: 'homepage'
   },
-  'get /bodegas': 'RutasController.listarBodegas',
 
+  'get /bodegas': 'RutasController.listarBodegas',
   'get /nuevabodega': {
     view: 'crearbodega'
   },
-
   'post /nuevabodega': 'BodegaController.crearBodega',
-
   'get /editarbodega': 'RutasController.editarBodega',
 
-  'get /items': 'RutasController.listarItems',
-
   'get /nuevoitem': 'RutasController.crearItem',
-
-  'post /nuevoitem': 'ItemController.crearItem',
 
   'get /error': 'RutasController.error'
 

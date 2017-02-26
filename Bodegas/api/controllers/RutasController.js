@@ -52,24 +52,6 @@ module.exports = {
       });
     }
   },
-  listarItems: function (req, res) {
-    var params = req.allParams();
-    Item.find(Item.idBodega == params.id).exec(function (err, listaitems) {
-      if (err) {
-        res.view('error', {
-          error: {
-            descripcion: "Hubo un problema.",
-            rawError: err,
-            url: "/bodegas"
-          }
-        })
-      }
-      res.view('listaritems', {
-        idBodega: params.id,
-        items: listaitems
-      });
-    })
-  },
   crearItem: function (req, res) {
     var params = req.allParams();
     res.view('crearitem', {

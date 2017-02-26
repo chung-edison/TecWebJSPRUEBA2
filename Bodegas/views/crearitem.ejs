@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Registrar Item en Bodega - <%= idBodega %></h1>
+  <form action="Item/crearItem" method="post">
+    <div class="form-group">
+      <label>Nombre del item:</label>
+      <input type="text" class="form-control" placeholder="Item" name="nombre">
+    </div>
+    <div class="form-group">
+      <label>Cantidad:</label>
+      <input type="number" class="form-control" min="0" name="cantidad">
+    </div>
+    <div class="form-group">
+      <label>Peso:</label>
+      <input type="number" class="form-control" min="0" name="peso">
+    </div>
+    <input type='hidden' name='idBodega' value='<%= idBodega %>'>
+    <button type="submit" class="btn btn-block btn-success">Registrar Item</button>
+  </form>
+</div>
