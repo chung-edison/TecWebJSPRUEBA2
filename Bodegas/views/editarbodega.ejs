@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Editar bodega - <%= bodega.nombre %></h1>
+  <form action="Bodega/editarBodega" METHOD="POST">
+    <div class="form-group">
+      <label>Nombre de la bodega:</label>
+      <input type="text" class="form-control" value="<%= bodega.nombre %>" name="nombre">
+    </div>
+    <div class="form-group">
+      <label>Dirección de la bodega:</label>
+      <input type="text" class="form-control" value="<%= bodega.direccion %>" name="direccion">
+    </div>
+    <div class="form-group">
+      <label>Capacidad de la bodega (en toneladas):</label>
+      <input type="number" class="form-control" min="0" name="capacidadEnToneladas" value="<%= bodega.capacidadEnToneladas %>">
+    </div>
+    <button type="submit" class="btn btn-block btn-success">Registrar Bodega</button>
+  </form>
+</div>

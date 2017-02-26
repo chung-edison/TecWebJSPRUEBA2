@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Lista de Items en Bodega <%= idBodega %></h1>
   <div class="row">
-    <a href="/nuevoitem?idBodega=<%= idBodega %>" class="btn btn-block btn-success">Nuevo Item</a>
+    <a href="/Item/crearItem?idBodega=<%= idBodega %>" class="btn btn-block btn-success">Nuevo Item</a>
   </div>
 
   <% for (i = 0; i < items.length;i++) { %>
@@ -14,8 +14,8 @@
     <div class="col-sm-2">
     </div>
     <div class="col-sm-2">
-      <button class="btn btn-block btn-info">Editar</button>
-      <button class="btn btn-block btn-danger">Borrar</button>
+      <button href="/Item/editarItem?id=<%= items[i].id %>" class="btn btn-block btn-info">Editar</button>
+      <button href="/Item/borrarItem?id=<%= items[i].id %>" class="btn btn-block btn-danger">Borrar</button>
     </div>
   </div>
   <% } %>

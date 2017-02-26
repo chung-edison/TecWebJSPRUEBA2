@@ -15,7 +15,7 @@ module.exports = {
           direccion: parametros.direccion,
           capacidadEnToneladas: parametros.capacidadEnToneladas,
           items: []
-      }
+        }
         Bodega.create(nuevaBodega).exec(function (err, bodegaCreada) {
           if (err) {
             return res.view('error', {
@@ -43,6 +43,34 @@ module.exports = {
           descripcion: "Error en el uso del método HTTP.",
           rawError: "HTTP inválido",
           url: "/nuevabodega"
+        }
+      });
+    }
+  },
+
+  borrarBodega: function (req, res) {
+    var parametros = req.allParams();
+    if (parametros.id) {
+      Bodega.destroy({
+        id: parametros.id
+      }).exec(function (err, bodegaBorrada) {
+        if (err) {
+          res.view('error', {
+            error: {
+              descripcion: "Error inesperado",
+              rawError: err,
+              url: "/bodegas"
+            }
+          });
+        }
+        res.redirect('/bodegas');
+      })
+    } else {
+      res.view('error', {
+        error: {
+          descripcion: "Necesitamos el ID para borrar la bodega.",
+          rawError: "No envía ID",
+          url: "/bodegas"
         }
       });
     }
