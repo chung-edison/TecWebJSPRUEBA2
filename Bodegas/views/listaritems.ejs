@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Lista de Items en Bodega <%= idBodega %></h1>
+  <div class="row">
+    <a href="/nuevoitem?idBodega=<%= idBodega %>" class="btn btn-block btn-success">Nuevo Item</a>
+  </div>
+
+  <% for (i = 0; i < items.length;i++) { %>
+  <div class="row">
+    <div class="col-sm-8">
+      <h4>Nombre: <%= items[i].nombre %></h4>
+      <h4>Cantidad: <%= items[i].cantidad %></h4>
+      <h4>Peso: <%= items[i].peso %></h4>
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-block btn-info">Editar</button>
+      <button class="btn btn-block btn-danger">Borrar</button>
+    </div>
+  </div>
+  <% } %>
+
+</div>

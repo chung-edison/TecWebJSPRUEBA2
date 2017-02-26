@@ -8,9 +8,15 @@
 module.exports = {
 
   attributes: {
-    nombre: string,
-    cantidad: integer,
-    peso: integer,
+    nombre: {
+      type: 'string'
+    },
+    cantidad: {
+      type: 'integer'
+    },
+    peso: {
+      type: 'integer'
+    },
     idBodega: {
       model: "Bodega"
     }

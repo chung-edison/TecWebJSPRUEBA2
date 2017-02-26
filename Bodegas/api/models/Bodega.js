@@ -8,9 +8,15 @@
 module.exports = {
 
   attributes: {
-    nombre: string,
-    direccion: string,
-    capacidadEnToneladas: integer,
+    nombre: {
+      type: 'string'
+    },
+    direccion: {
+      type: 'string'
+    },
+    capacidadEnToneladas: {
+      type: 'integer'
+    },
     items: {
       collection: "Item",
       via: "idBodega"

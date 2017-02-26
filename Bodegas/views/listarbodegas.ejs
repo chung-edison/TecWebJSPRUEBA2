@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Lista de Bodegas</h1>
+
+  <% for (i = 0; i < bodegas.length;i++) { %>
+  <div class="row">
+    <div class="col-sm-8">
+      <h4>Bodega: <%= bodegas[i].nombre %></h4>
+      <h4>Dirección: <%= bodegas[i].direccion %></h4>
+      <h4>Capacidad (en toneladas): <%= bodegas[i].capacidadEnToneladas %></h4>
+    </div>
+    <div class="col-sm-2">
+      <a class="btn btn-block btn-success" href="/items?id=<%= i %>">Ver items</a>
+    </div>
+    <div class="col-sm-2">
+      <a class="btn btn-block btn-info">Editar</a>
+      <a class="btn btn-block btn-danger">Borrar</a>
+    </div>
+  </div>
+  <% } %>
+
+</div>
